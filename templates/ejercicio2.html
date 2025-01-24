@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/static/css/estilos.css">
+
+<title>Ejercicio_2</title>
+</head>
+
+<body>
+
+<div class="container">
+
+        <form method="POST">
+            <label for="nombre1">Nombre 1:</label>
+            <input type="text" name="nombre1" id="nombre1" required>
+
+            <label for="nombre2">Nombre 2:</label>
+            <input type="text" name="nombre2" id="nombre2" required>
+
+            <label for="nombre3">Nombre 3:</label>
+            <input type="text" name="nombre3" id="nombre3" required>
+
+            <button class="button" type="submit">Enviar</button>
+        </form>
+
+        {% if mensaje %}
+        <div class="message error">
+            <p>{{ mensaje }}</p>
+        </div>
+        {% elif nombres_mas_largos %}
+        <div class="message success">
+            <p>Nombre(s) con más caracteres:</p>
+            <ul class="centered-list">
+                {% for nombre in nombres_mas_largos %}
+                <li>{{ nombre }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+
+</body>
